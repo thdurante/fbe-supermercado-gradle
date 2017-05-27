@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adicionar produto</title>
+    <meta charset="utf-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <h3>Adicionar produto</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+        <form method="POST">
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="nome" placeholder="Nome" required />
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control"  name="codigo" placeholder="Código" />
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="preco" placeholder="Preço" />
+            </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

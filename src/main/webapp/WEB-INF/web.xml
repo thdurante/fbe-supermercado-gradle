@@ -7,8 +7,16 @@
         <servlet-name>Carrinho</servlet-name>
         <servlet-class>br.ufg.inf.servlets.Carrinho</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnderecoServlet</servlet-name>
+        <servlet-class>br.ufg.inf.servlets.EnderecoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Carrinho</servlet-name>
         <url-pattern>/carrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnderecoServlet</servlet-name>
+        <url-pattern>/endereco</url-pattern>
     </servlet-mapping>
 </web-app>

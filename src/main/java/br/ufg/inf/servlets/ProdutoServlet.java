@@ -1,5 +1,6 @@
 package br.ufg.inf.servlets;
 
+import br.ufg.inf.models.Estoque;
 import br.ufg.inf.models.Produto;
 
 import javax.servlet.RequestDispatcher;
@@ -11,9 +12,12 @@ import java.io.IOException;
 
 public class ProdutoServlet extends HttpServlet {
 
+    private Estoque estoque;
+
     @Override
     public void init() throws ServletException {
         super.init();
+        this.estoque = new Estoque();
     }
 
     @Override
@@ -34,8 +38,8 @@ public class ProdutoServlet extends HttpServlet {
         Double preco = Double.parseDouble(req.getParameter("preco"));
 
         Produto produto = new Produto(codigo, nome, preco);
-        
+        this.estoque.adicionaProduto(produto);
+
+        resp.sendRedirect("/produto/new.html");
     }
-
-
 }

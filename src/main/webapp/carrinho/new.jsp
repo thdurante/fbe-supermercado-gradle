@@ -31,6 +31,7 @@
 
             <button type="submit" class="btn btn-primary btn-block">Adicionar ao Carrinho</button>
         </form>
+        <a href="/" class="btn btn-default btn-block" style="margin-top: 8px;">Voltar</a>
     </div>
 </div>
 </body>

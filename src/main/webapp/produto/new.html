@@ -10,29 +10,29 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-          <h3>Adicionar produto</h3>
+          <h3 class="text-center">Adicionar produto</h3>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-        <form method="POST">
+            <form method="POST">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="nome" placeholder="Nome" required />
+                </div>
 
-            <div class="form-group">
-              <input type="text" class="form-control" name="nome" placeholder="Nome" required />
-            </div>
+                <div class="form-group">
+                  <input type="text" class="form-control"  name="codigo" placeholder="Código" />
+                </div>
 
-            <div class="form-group">
-              <input type="text" class="form-control"  name="codigo" placeholder="Código" />
-            </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="preco" placeholder="Preço" />
+                </div>
 
-            <div class="form-group">
-              <input type="text" class="form-control" name="preco" placeholder="Preço" />
-            </div>
-
-          <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
-        </form>
-      </div>
+              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+            </form>
+            <a href="/" class="btn btn-default btn-block" style="margin-top: 8px;">Voltar</a>
+        </div>
       </div>
     </div>
   </body>

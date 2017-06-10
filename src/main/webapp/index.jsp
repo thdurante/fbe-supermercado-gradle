@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<% request.getAttribute("produtosAdicionados"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +19,25 @@
 </div>
 <div class="row">
   <div class="col-xs-4 col-xs-offset-4">
+    <c:if test="${produtosAdicionados != null && produtosAdicionados.size() > 0}">
+      <div style="margin-bottom: 8px;">
+          <div class="alert alert-success">
+            <p>Produto(s) adicionado(s) ao carrinho: </p>
+            <ul>
+              <c:forEach var="produto" items="${produtosAdicionados}">
+                <li>
+                    ${produto.getNome()}
+                </li>
+              </c:forEach>
+            </ul>
+          </div>
+      </div>
+    </c:if>
     <div style="margin-bottom: 8px;">
         <a href="/produto/new.html" class="btn btn-primary btn-block"><i class="fa fa-diamond"> Produto</i></a>
     </div>
     <div style="margin-bottom: 8px;">
-        <a href="/endereco/new.html" class="btn btn-primary btn-block"><i class="fa fa-map"> EndereÃ§o</i></a>
+        <a href="/endereco/new.html" class="btn btn-primary btn-block"><i class="fa fa-map"> Endereço</i></a>
     </div>
     <div style="margin-bottom: 8px;">
         <a href="/carrinho" class="btn btn-primary btn-block"><i class="fa fa-shopping-cart"> Carrinho</i></a>

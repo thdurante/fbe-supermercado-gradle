@@ -7,6 +7,7 @@ import br.ufg.inf.models.Produto;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CarrinhoServlet extends HttpServlet{
 
@@ -33,13 +34,21 @@ public class CarrinhoServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String[] produtos = req.getParameterValues("produtos");
+        String[] idsProdutos = req.getParameterValues("produtos");
+        ArrayList<Produto> produtos = new ArrayList<>();
         Carrinho carrinho = new Carrinho();
 
-        for (String p : produtos) {
+        for (String p : idsProdutos) {
             int codigoProduto = Integer.parseInt(p);
-            carrinho.addProduto(codigoProduto, 0);
+            Produto produto = estoque.buscaProdutoPeloCodigo(codigoProduto);
+            produtos.add(produto);
+            carrinho.addProduto(produto, 0);
+            req.getSession().setAttribute("carrinho", carrinho);
         }
+
+        RequestDispatcher view = req.getRequestDispatcher("/");
+        req.setAttribute("produtosAdicionados", produtos);
+        view.forward(req, resp);
     }
 
     private void carregarProdutosTeste() {

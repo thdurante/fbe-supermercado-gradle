@@ -5,17 +5,17 @@ import java.util.Map;
 
 public class Carrinho {
 
-    private Map<Integer, Double> cesta;
+    private Map<Produto, Double> cesta;
 
     public Carrinho() {
         this.cesta = new HashMap<>();
     }
 
-    public void addProduto(int codigoProduto, double quantidade) {
-       this.cesta.put(codigoProduto, quantidade);
+    public void addProduto(Produto produto, double quantidade) {
+       this.cesta.put(produto, quantidade);
     }
 
-    public Map<Integer, Double> getCesta() {
+    public Map<Produto, Double> getCesta() {
         return cesta;
     }
 }

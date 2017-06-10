@@ -15,6 +15,18 @@ public class Estoque {
         this.produtos.add(produto);
     }
 
+    public Produto buscaProdutoPeloCodigo(int codigo) {
+        Produto produtoEncontrado = null;
+
+        for (Produto produto : this.produtos) {
+            if (produto.getCodigo() == codigo) {
+                produtoEncontrado = produto;
+            }
+        }
+
+        return produtoEncontrado;
+    }
+
     public List<Produto> getProdutos() {
         return produtos;
     }

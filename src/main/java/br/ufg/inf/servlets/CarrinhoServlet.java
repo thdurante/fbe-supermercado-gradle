@@ -34,9 +34,14 @@ public class CarrinhoServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher view = req.getRequestDispatcher("/");
         String[] idsProdutos = req.getParameterValues("produtos");
         ArrayList<Produto> produtos = new ArrayList<>();
         Carrinho carrinho = new Carrinho();
+
+        if (idsProdutos == null) {
+            view.forward(req, resp);
+        }
 
         for (String p : idsProdutos) {
             int codigoProduto = Integer.parseInt(p);
@@ -46,7 +51,6 @@ public class CarrinhoServlet extends HttpServlet{
             req.getSession().setAttribute("carrinho", carrinho);
         }
 
-        RequestDispatcher view = req.getRequestDispatcher("/");
         req.setAttribute("produtosAdicionados", produtos);
         view.forward(req, resp);
     }
